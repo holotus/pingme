@@ -1,0 +1,19 @@
+name: pingme
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 3 * * *'
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out this repo
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - name: Install all necessary packages
+        run: pip install requests
+      - name: Run the scraping script and send email
+        run: python main.py
