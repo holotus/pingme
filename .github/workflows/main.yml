@@ -1,0 +1,18 @@
+name: pingme
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out this repo
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - name: Install all necessary packages
+        run: pip install requests
+      - name: Run the main to ping webhook.site
+        run: python main.py
