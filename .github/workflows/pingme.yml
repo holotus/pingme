@@ -2,7 +2,7 @@ name: pingme
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 3 * * *'
+    - cron: '* * * * *'
 jobs:
   main:
     runs-on: ubuntu-latest
